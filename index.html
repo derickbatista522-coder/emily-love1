@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emily ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Vídeo de fundo */
+video.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+    z-index: -1;
+}
+
+/* Tela de senha */
+#lock {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lock-box {
+    background: rgba(0,0,0,0.6);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 320px;
+}
+
+.lock-box h1 {
+    font-family: 'Pacifico', cursive;
+    color: #ff5c8a;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    border: none;
+    margin-top: 15px;
+    font-size: 1em;
+    text-align: center;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    background: #ff5c8a;
+    color: white;
+    font-size: 1em;
+}
+
+/* Site */
+#site {
+    display: none;
+    padding: 25px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: #ff5c8a;
+    font-size: 2.5em;
+}
+
+.counter {
+    margin: 20px 0;
+    font-size: 1.1em;
+    background: rgba(255,255,255,0.15);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.message {
+    margin-top: 25px;
+    line-height: 1.7em;
+    font-size: 1.05em;
+}
+</style>
+</head>
+
+<body>
+
+<!-- VÍDEO (coloque video.mp4 na pasta) -->
+<video class="bg" autoplay muted loop>
+    <source src="video.mp4" type="video/mp4">
+</video>
+
+<!-- TELA DE SENHA -->
+<div id="lock">
+    <div class="lock-box">
+        <h1>💌 Apenas para Emily</h1>
+        <p>Digite a senha</p>
+        <input type="password" id="senha" placeholder="••••">
+        <button onclick="verificar()">Entrar</button>
+    </div>
+</div>
+
+<!-- SITE -->
+<div id="site">
+    <h1>Emily ❤️</h1>
+
+    <div class="counter" id="contador"></div>
+
+    <div class="message">
+        Desde o dia <strong>24 de outubro de 2025</strong>,  
+        o mundo ganhou mais cor pra mim.
+
+        <br><br>
+
+        Não foi só o tempo que passou.  
+        Foi sentimento, foi conexão, foi amor crescendo em silêncio,
+        dia após dia.
+
+        <br><br>
+
+        Cada segundo desde então até <strong>12 de janeiro de 2026</strong>
+        carrega um pedaço do que eu sinto por você.
+        E mesmo que o calendário marque poucos meses,
+        meu coração sente como se fossem anos de nós.
+
+        <br><br>
+
+        Eu te amo de um jeito calmo,
+        intenso,
+        verdadeiro.
+        E hoje, no seu aniversário,
+        eu só queria que você soubesse:
+        você é meu lugar seguro 💖
+    </div>
+</div>
+
+<script>
+function verificar() {
+    if (document.getElementById("senha").value === "2412") {
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("site").style.display = "block";
+    } else {
+        alert("Senha incorreta 💔");
+    }
+}
+
+// CONTADOR DE TEMPO
+const inicio = new Date("2025-10-24T00:00:00");
+
+function atualizar() {
+    const agora = new Date();
+    const diff = agora - inicio;
+
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diff / (1000 * 60)) % 60);
+    const segundos = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("contador").innerHTML =
+        `Nos conhecemos há:<br>
+        <strong>${dias}</strong> dias,
+        <strong>${horas}</strong> horas,
+        <strong>${minutos}</strong> minutos e
+        <strong>${segundos}</strong> segundos 💞`;
+}
+
+setInterval(atualizar, 1000);
+atualizar();
+</script>
+
+</body>
+</html>
